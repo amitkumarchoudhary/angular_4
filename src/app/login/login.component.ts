@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import {UserserviceService} from '../../app/services/userservice.service';
 
 @Component({
   selector: 'app-login',
@@ -7,32 +9,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  name:String;
-  visible=true;
-  data :{
-       id : number,
-       name :String,
-       salary: number
+  
 
-  }
+  name:String;
+  password:String;
+  visible=true;
+  posts : Post[];
+  
   role:String[]
-  constructor() { }
+  constructor(private userserviceService : UserserviceService) { 
+    
+  }
 
   ngOnInit() {
-    this.name="amit kumar choudhary";
-    this.data={
-      id :11,name:"akc",salary:20000
-    }
-
-    this.role=['hero','zero','tero'];
+    
+   this.userserviceService.getAllUserDetails().subscribe((posts)=>{
+     this.posts=posts;
+   })
   }
+   
+  
   onClick(){
     console.log('click called...');
-    this.name='a k  choudhary';
-  }
-  addHobby(role){
-   this.role.unshift(role);
-   return false;
+    alert('call by form')
   }
 
+}
+
+interface Post{
+  id : number,
+  name : String,
+  salary : number,
+  address : String,
+  body:String,
+  userId:String
 }

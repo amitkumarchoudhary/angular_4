@@ -1,7 +1,7 @@
-
+<!--<div class="pannel">
   <div *ngIf="visible" class="row datamargin">
           <h3>Don,t have Account please login <a href="">create your accout</a></h3>
-          <form (click)="onClick()">
+          <form (ngSubmit)="onClick()">
               <div class="col-3 menu ">
                   <label for="fname">User Name</label>
                   <input type="text" id="id" name="id" required="required"  placeholder="enter user ...."/>
@@ -14,6 +14,24 @@
               </div>
            </form>
 </div>
-  
+</div>  -->
+<div class="pannel" >
+    <div style="overflow: auto;width: 980px;height: 400px">
+<div *ngFor="let post of posts" >
+    <ul className="a" key={post.userId} >
+            <tr>
+                  <li>
+                 <td style="width:750px"> 
+                   <h4>ID: {{post.userId}}    Name:  {{post.name}}  Salary :  {{post.salary}}     Address:  {{post.address}} </h4></td>
+                 <td> 
+                  <button name="delete" value="delete" > delete </button>
+                  <button name="edit"  value="edit" style="margin-left: 20px"> EDIT </button></td>
+                  </li>
+              </tr> 
+            </ul>
+
+</div>
+</div>
+</div>
 
 

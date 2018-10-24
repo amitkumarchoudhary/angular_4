@@ -55,4 +55,10 @@ body {
         width: 100%;
     }
 }
+.pannel{
+    height: 450px;
+    width: 950px;
+    margin-left: 300px;
+    background-color: peachpuff;
+}
 
